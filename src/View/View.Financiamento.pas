@@ -1,4 +1,4 @@
-unit View.Pagamento;
+unit View.Financiamento;
 
 interface
 
@@ -24,7 +24,7 @@ uses
   Model.TThreads.OnShow,
   Model.Helpers.Edit;
 type
-  TFramePagamento = class(TFrame)
+  TFrameFinanciamento = class(TFrame)
     pnlTop: TPanel;
     Panel2: TPanel;
     cmbSistemaPagamento: TComboBox;
@@ -86,7 +86,7 @@ implementation
 
 { TFrameResultado }
 
-procedure TFramePagamento.AfterConstruction;
+procedure TFrameFinanciamento.AfterConstruction;
 begin
   inherited;
   FFinanciamentoFactory := TServiceFinanciamentoFactory.Create;
@@ -98,7 +98,7 @@ begin
   FThreadShow.Start;
 end;
 
-procedure TFramePagamento.AjustarGrid;
+procedure TFrameFinanciamento.AjustarGrid;
 begin
   dbgSimulador.SetPosition(0,10);
   dbgSimulador.SetPosition(1,15);
@@ -107,7 +107,7 @@ begin
   dbgSimulador.SetPosition(4,30);
 end;
 
-procedure TFramePagamento.BeforeDestruction;
+procedure TFrameFinanciamento.BeforeDestruction;
 begin
   if Assigned(FFinanciamento) then
     FFinanciamento.Free;
@@ -117,18 +117,18 @@ begin
   inherited;
 end;
 
-procedure TFramePagamento.imgFecharClick(Sender: TObject);
+procedure TFrameFinanciamento.imgFecharClick(Sender: TObject);
 begin
   if Assigned(FClose) then
     FClose();
 end;
 
-procedure TFramePagamento.lblCalcularClick(Sender: TObject);
+procedure TFrameFinanciamento.lblCalcularClick(Sender: TObject);
 begin
   Calcular;
 end;
 
-procedure TFramePagamento.Calcular;
+procedure TFrameFinanciamento.Calcular;
 begin
   if Assigned(FFinanciamento) then
     FreeAndNil(FFinanciamento);
@@ -152,8 +152,8 @@ begin
 
   FFinanciamento.DataSource(dsFinanciamento)
                 .Capital(edtCapital.ToCurrency)
-                .Messes(edtQtMesses.ToInteger)
                 .Taxa(edtTaxaJuros.ToCurrency)
+                .Messes(edtQtMesses.ToInteger)
                 .CalcularFinanciamento;
 
   lblJuros.Caption := FFinanciamento.Totais.Juros.ToString();
@@ -161,7 +161,7 @@ begin
   lblPagamento.Caption := FFinanciamento.Totais.Pagamento.ToString();
 end;
 
-procedure TFramePagamento.CelarValues;
+procedure TFrameFinanciamento.CelarValues;
 begin
   lblJuros.Caption := 'R$ 0,00';
   lblAmortizacao.Caption := 'R$ 0,00';
@@ -170,28 +170,28 @@ begin
     FFinanciamento.ClearFields;
 end;
 
-procedure TFramePagamento.cmbSistemaPagamentoChange(Sender: TObject);
+procedure TFrameFinanciamento.cmbSistemaPagamentoChange(Sender: TObject);
 begin
   CelarValues();
 end;
 
-procedure TFramePagamento.edtCapitalChange(Sender: TObject);
+procedure TFrameFinanciamento.edtCapitalChange(Sender: TObject);
 begin
   TEdit(Sender).FormatCurrency;
 end;
 
-procedure TFramePagamento.edtTaxaJurosChange(Sender: TObject);
+procedure TFrameFinanciamento.edtTaxaJurosChange(Sender: TObject);
 begin
   TEdit(Sender).FormatCurrency;
 end;
 
-procedure TFramePagamento.OnShow;
+procedure TFrameFinanciamento.OnShow;
 begin
   AjustarGrid;
   edtCapital.SetFocus;
 end;
 
-procedure TFramePagamento.SetClose(const Value: TProc);
+procedure TFrameFinanciamento.SetClose(const Value: TProc);
 begin
   FClose := Value;
 end;

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  View.Pagamento, Vcl.ComCtrls, View.NovoCliente, Vcl.Imaging.pngimage;
+  View.Financiamento, Vcl.ComCtrls, View.NovoCliente, Vcl.Imaging.pngimage;
 
 type
   TfrmPrincipal = class(TForm)
@@ -47,11 +47,11 @@ end;
 
 procedure TfrmPrincipal.CreateFramePagamento(AOwner:TTabSheet);
 var
-  LFrame:TFramePagamento;
+  LFrame:TFrameFinanciamento;
 begin
   if not(AOwner is TTabSheet) then
     raise Exception.Create('Owner deve ser do tipo TTabShet');
-  LFrame := TFramePagamento.Create(AOwner);
+  LFrame := TFrameFinanciamento.Create(AOwner);
   LFrame.Parent := TTabSheet(AOwner);
   LFrame.Close := procedure ()
                   begin

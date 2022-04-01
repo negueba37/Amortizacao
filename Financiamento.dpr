@@ -15,7 +15,7 @@ uses
   Service.Financiamento.PagamentoVariavel in 'src\Service\Financiamento\Service.Financiamento.PagamentoVariavel.pas',
   Service.Financiamento in 'src\Service\Financiamento\Service.Financiamento.pas',
   View.NovoCliente in 'src\View\View.NovoCliente.pas' {FrameNovoCliente: TFrame},
-  View.Pagamento in 'src\View\View.Pagamento.pas' {FramePagamento: TFrame},
+  View.Financiamento in 'src\View\View.Financiamento.pas' {FrameFinanciamento: TFrame},
   View.Principal in 'src\View\View.Principal.pas' {frmPrincipal};
 
 {$R *.res}

@@ -1,4 +1,4 @@
-object FramePagamento: TFramePagamento
+object FrameFinanciamento: TFrameFinanciamento
   Left = 0
   Top = 0
   Width = 640
@@ -13,7 +13,7 @@ object FramePagamento: TFramePagamento
     Height = 41
     Align = alTop
     BevelOuter = bvNone
-    Caption = 'Sistema de Amortiza'#231#227'o'
+    Caption = 'Simulador de Financiamento'
     Color = 14255972
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
@@ -104,7 +104,7 @@ object FramePagamento: TFramePagamento
       AlignWithMargins = True
       Left = 18
       Top = 0
-      Width = 144
+      Width = 126
       Height = 26
       Margins.Left = 16
       Margins.Top = 0
@@ -112,15 +112,12 @@ object FramePagamento: TFramePagamento
       Margins.Bottom = 0
       Align = alLeft
       AutoSize = False
-      Caption = 'Sistema de amortiza'#231#227'o'
+      Caption = 'Tabela de amortiza'#231#227'o'
       Layout = tlCenter
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitHeight = 23
     end
     object cmbSistemaPagamento: TComboBox
       AlignWithMargins = True
-      Left = 162
+      Left = 144
       Top = 1
       Width = 280
       Height = 22
@@ -141,6 +138,7 @@ object FramePagamento: TFramePagamento
         'PRIECE'
         'SAM'
         'Sistema Alem'#227'o')
+      ExplicitLeft = 162
     end
     object Panel6: TPanel
       Left = 638
@@ -176,13 +174,14 @@ object FramePagamento: TFramePagamento
     ParentBackground = False
     TabOrder = 2
     object pnlCalcular: TPanel
-      Left = 321
+      Left = 297
       Top = 2
       Width = 56
       Height = 59
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 321
       object imgCalcular: TImage
         AlignWithMargins = True
         Left = 0
@@ -304,7 +303,7 @@ object FramePagamento: TFramePagamento
     object Panel11: TPanel
       Left = 2
       Top = 2
-      Width = 319
+      Width = 295
       Height = 59
       Align = alLeft
       BevelOuter = bvNone
@@ -336,6 +335,7 @@ object FramePagamento: TFramePagamento
         Width = 121
         Height = 23
         TabOrder = 0
+        Text = '0,00'
         OnChange = edtCapitalChange
       end
       object edtQtMesses: TEdit
@@ -352,6 +352,7 @@ object FramePagamento: TFramePagamento
         Width = 52
         Height = 23
         TabOrder = 1
+        Text = '0,00'
         OnChange = edtTaxaJurosChange
       end
     end
